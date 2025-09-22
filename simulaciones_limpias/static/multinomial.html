@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización Multinomial 3D</title>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="css/multinomial.css">
+</head>
+<body>
+    <div class="app-container">
+    <!-- Barra de navegación mejorada -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-chart-bar"></i>Simulador Estadístico
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-bell me-1"></i> Distribución Multinomial
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="distributionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-share-alt me-1"></i> Otras Distribuciones
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="distributionsDropdown">
+                            <li><a class="dropdown-item" href="binomial_puntual.html"><i class="fas fa-coins me-2"></i>Binomial Puntual</a></li>
+                            <li><a class="dropdown-item" href="binomial_distribucion.html"><i class="fas fa-chart-bar me-2"></i>Distribución Binomial</a></li>
+                            <li><a class="dropdown-item" href="exponencial.html"><i class="fas fa-chart-line me-2"></i>Distribución Exponencial</a></li>
+                            <li><a class="dropdown-item" href="gebbs.html"><i class="fas fa-random me-2"></i>Método de Gebbs</a></li>
+                            <li><a class="dropdown-item" href="normal.html"><i class="fas fa-dot-circle me-2"></i>Distribución Normal</a></li>
+                            <li><a class="dropdown-item" href="normal_parametros.html"><i class="fas fa-sliders-h me-2"></i>Distribución Normal Parámetros</a></li>
+                            <li><a class="dropdown-item" href="normal_bivariable.html"><i class="fas fa-braille me-2"></i>Distribución Normal Bivariable</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html"><i class="fas fa-home me-2"></i>Página Principal</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="d-flex">
+                    <a href="index.html" class="btn btn-outline-light">
+                        <i class="fas fa-home me-1"></i> Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        <!-- Header -->
+        <div class="title-section">
+            <h1><i class="fas fa-dice me-2"></i>Visualización Multinomial 3D</h1>
+            <p>Superficie de distribución de probabilidad para experimentos con dados</p>
+        </div>
+
+        <div class="content-section">
+            <div class="row">
+                <!-- Panel de configuración -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-sliders-h me-2"></i>Parámetros de Distribución
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="numDice" class="form-label">Número de dados por experimento</label>
+                                <input type="number" class="form-control" id="numDice" value="6" min="1" max="100">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="numExperiments" class="form-label">Número de experimentos</label>
+                                <input type="number" class="form-control" id="numExperiments" value="10" min="1" max="1000">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="numRepetitions" class="form-label">Número de repeticiones</label>
+                                <input type="number" class="form-control" id="numRepetitions" value="20" min="5" max="500">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="biasType" class="form-label">Tipo de sesgo</label>
+                                <select class="form-select" id="biasType">
+                                    <option value="none">Sin sesgo (dados justos)</option>
+                                    <option value="low">Sesgo bajo</option>
+                                    <option value="medium">Sesgo medio</option>
+                                    <option value="high">Sesgo alto</option>
+                                </select>
+                            </div>
+                            
+                            <div class="d-grid mt-4">
+                                <button class="btn btn-primary btn-lg" id="btnGenerar">
+                                    <i class="fas fa-sync-alt me-2"></i>Generar Visualización
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <i class="fas fa-info-circle me-2"></i>Explicación
+                        </div>
+                        <div class="card-body">
+                            <p>Esta visualización muestra una distribución multinomial como una superficie 3D tipo "montaña".</p>
+                            <p class="mb-1"><strong>Eje X:</strong> Caras del dado (1-6)</p>
+                            <p class="mb-1"><strong>Eje Y:</strong> Número de experimentos</p>
+                            <p class="mb-1"><strong>Eje Z:</strong> Frecuencia acumulada</p>
+                            <p class="mb-0">Ajusta los parámetros para ver cómo cambia la distribución de probabilidad.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gráfico 3D -->
+                <div class="col-lg-8 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-chart-area me-2"></i>Superficie de Distribución Multinomial
+                        </div>
+                        <div class="card-body">
+                            <div class="loading-overlay" id="loadingIndicator">
+                                <div class="text-center">
+                                    <div class="spinner-border text-primary mb-2" style="width: 3rem; height: 3rem;" role="status">
+                                        <span class="visually-hidden">Cargando...</span>
+                                    </div>
+                                    <p>Generando visualización 3D...</p>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <div id="grafico3D"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <i class="fas fa-calculator me-2"></i>Estadísticas de Distribución
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Entropía</h5>
+                                            <p class="card-text display-6" id="entropyValue">2.58</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Máxima Probabilidad</h5>
+                                            <p class="card-text display-6" id="maxProbValue">0.167</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Uniformidad</h5>
+                                            <p class="card-text display-6" id="uniformityValue">0.95</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Visualización Multinomial 3D © 2025 | Creado con fines educativos</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/multinomial.js"></script>
+</body>
+</html>

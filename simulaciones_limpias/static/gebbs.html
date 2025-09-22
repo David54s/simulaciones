@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador del Método de Gibbs - Mejorado</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/gebbs.css">
+</head>
+<body>
+    <div class="app-container">
+     <!-- Barra de navegación mejorada -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-chart-bar"></i>Simulador Estadístico
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-bell me-1"></i> Método de Gebbs
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="distributionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-share-alt me-1"></i> Otras Distribuciones
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="distributionsDropdown">
+                            <li><a class="dropdown-item" href="binomial_puntual.html"><i class="fas fa-coins me-2"></i>Binomial Puntual</a></li>
+                            <li><a class="dropdown-item" href="binomial_distribucion.html"><i class="fas fa-chart-bar me-2"></i>Distribución Binomial</a></li>
+                            <li><a class="dropdown-item" href="exponencial.html"><i class="fas fa-chart-line me-2"></i>Distribución Exponencial</a></li>
+                            <li><a class="dropdown-item" href="multinomial.html"><i class="fas fa-dice me-2"></i>Distribución Multinomial</a></li>
+                            <li><a class="dropdown-item" href="normal.html"><i class="fas fa-dot-circle me-2"></i>Distribución Normal</a></li>
+                            <li><a class="dropdown-item" href="normal_parametros.html"><i class="fas fa-sliders-h me-2"></i>Distribución Normal Parámetros</a></li>
+                            <li><a class="dropdown-item" href="normal_bivariable.html"><i class="fas fa-braille me-2"></i>Distribución Normal Bivariable</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html"><i class="fas fa-home me-2"></i>Página Principal</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="d-flex">
+                    <a href="index.html" class="btn btn-outline-light">
+                        <i class="fas fa-home me-1"></i> Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        <!-- Header -->
+        <div class="title-section">
+            <h1><i class="fas fa-project-diagram me-2"></i>Simulador del Método de Gibbs</h1>
+            <p>Visualiza y comprende el muestreo de Gibbs para distribuciones conjuntas</p>
+        </div>
+
+        <div class="content-section">
+            <div class="row">
+                <!-- Panel de configuración -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card settings-panel">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4"><i class="fas fa-sliders-h me-2"></i>Configuración</h5>
+                            
+                            <div class="mb-3">
+                                <label for="numMuestras" class="form-label">
+                                    Número de muestras (n)
+                                    <i class="fas fa-info-circle info-icon" data-bs-toggle="tooltip" title="Cantidad de valores a generar en la simulación"></i>
+                                </label>
+                                <input type="number" class="form-control" id="numMuestras" value="500" min="100" max="1000000">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="burnIn" class="form-label">
+                                    Iteraciones de burn-in
+                                    <i class="fas fa-info-circle info-icon" data-bs-toggle="tooltip" title="Número de iteraciones iniciales que se descartan para asegurar la convergencia"></i>
+                                </label>
+                                <input type="number" class="form-control" id="burnIn" value="100" min="0" max="10000">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="x0" class="form-label">
+                                    Valor inicial de X
+                                    <i class="fas fa-info-circle info-icon" data-bs-toggle="tooltip" title="Valor inicial para la variable X (puede estar fuera del rango [0,2])"></i>
+                                </label>
+                                <input type="number" class="form-control" id="x0" value="4.0" step="0.1">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="y0" class="form-label">
+                                    Valor inicial de Y
+                                    <i class="fas fa-info-circle info-icon" data-bs-toggle="tooltip" title="Valor inicial para la variable Y (puede estar fuera del rango [0,2])"></i>
+                                </label>
+                                <input type="number" class="form-control" id="y0" value="5.0" step="0.1">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="gridSize" class="form-label">
+                                    Resolución de la malla
+                                    <i class="fas fa-info-circle info-icon" data-bs-toggle="tooltip" title="Número de divisiones para la malla 3D (mayor valor = más detalle pero más lento)"></i>
+                                </label>
+                                <select class="form-control" id="gridSize">
+                                    <option value="15">15x15 (Rápido)</option>
+                                    <option value="20" selected>20x20 (Equilibrado)</option>
+                                    <option value="25">25x25 (Detallado)</option>
+                                    <option value="30">30x30 (Muy detallado)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button class="btn btn-gebbs btn-lg" id="btnGenerarGibbs">
+                                    <i class="fas fa-sync-alt me-2"></i>Generar Simulación
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Estadísticas -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-bar me-2"></i>Estadísticas
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-6 mb-3">
+                                    <div class="stat-card">
+                                        <div class="stat-label">Media de X</div>
+                                        <div class="stat-value" id="mediaX">-</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="stat-card">
+                                        <div class="stat-label">Media de Y</div>
+                                        <div class="stat-value" id="mediaY">-</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="stat-card">
+                                        <div class="stat-label">Varianza de X</div>
+                                        <div class="stat-value" id="varianzaX">-</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="stat-card">
+                                        <div class="stat-label">Varianza de Y</div>
+                                        <div class="stat-value" id="varianzaY">-</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="stat-card">
+                                        <div class="stat-label">Correlación</div>
+                                        <div class="stat-value" id="correlacion">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="stat-card">
+                                        <div class="stat-label">Máxima Frecuencia</div>
+                                        <div class="stat-value" id="maxFrequency">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gráficos -->
+                <div class="col-lg-8 mb-4">
+                    <div class="visualization-controls">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="showHistogram" checked>
+                            <label class="form-check-label" for="showHistogram">Mostrar histograma 3D</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="showPoints" checked>
+                            <label class="form-check-label" for="showPoints">Mostrar puntos de muestra</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="showTheoretical" checked>
+                            <label class="form-check-label" for="showTheoretical">Mostrar superficie teórica</label>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-chart-scatter me-2"></i>Distribución Conjunta (Método de Gibbs) - Histograma 3D
+                        </div>
+                        <div class="card-body">
+                            <div class="loading-overlay" id="loadingIndicator" style="display: none;">
+                                <div class="text-center">
+                                    <div class="spinner-border text-primary mb-2" style="width: 3rem; height: 3rem;" role="status">
+                                        <span class="visually-hidden">Cargando...</span>
+                                    </div>
+                                    <p>Procesando simulación...</p>
+                                </div>
+                            </div>
+                            <div id="threejs-container">
+                                <!-- Controles minimalistas -->
+                                <div class="minimal-controls">
+                                    <button class="btn-minimal" id="btnDownloadPNG" title="Descargar PNG">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button class="btn-minimal" id="btnRotateLeft" title="Rotar Izquierda">
+                                        <i class="fas fa-undo"></i>
+                                    </button>
+                                    <button class="btn-minimal" id="btnRotateRight" title="Rotar Derecha">
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+                                    <button class="btn-minimal" id="btnResetView" title="Restablecer Vista">
+                                        <i class="fas fa-sync"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Leyenda de colores -->
+                            <div class="color-legend mt-3">
+                                <h6>Densidad de Probabilidad</h6>
+                                <div class="color-gradient-container"></div>
+                                <div class="color-labels">
+                                    <span>Baja</span>
+                                    <span>Media</span>
+                                    <span>Alta</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Información -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <i class="fas fa-info-circle me-2"></i>Acerca del Método de Gibbs
+                        </div>
+                        <div class="card-body">
+                            <p>El método de Gibbs es un algoritmo de MCMC (Markov Chain Monte Carlo) utilizado para obtener muestras de distribuciones multivariadas cuando las distribuciones condicionales son más fáciles de muestrear que la conjunta.</p>
+                            <p class="mb-1"><strong>Función de densidad conjunta:</strong> f(x,y) = (1/28)(2x + 3y + 2) para x,y ∈ [0,2]</p>
+                            <p class="mb-1"><strong>Distribución condicional X|Y:</strong> f(x|y) = (2x + 3y + 2) / (8 + 6y)</p>
+                            <p class="mb-0"><strong>Distribución condicional Y|X:</strong> f(y|x) = (2x + 3y + 2) / (4x + 10)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Simulador del Método de Gibbs © 2025 | Creado con fines educativos</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/gebbs.js"></script>
+</body>
+</html>
