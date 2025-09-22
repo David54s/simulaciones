@@ -13,8 +13,10 @@
             --exponencial: #f72585;
             --multinomial: #21867a;
             --puntual: #9a11aa;
-            --gebbs: #bd5007;
-            --normal: #077d9b;
+            --gebbs: #5b63bf;
+            --normal-estandar: #077d9b;
+            --normal-densidad: #edc25e;
+            --normal-bivariable: #34e23d;
         }
         
         body {
@@ -85,14 +87,23 @@
         }
         
         .puntual-header {
-            background: linear-gradient(to right, var(--puntual), #9a11aa);
+            background: linear-gradient(to right, var(--puntual), #9b1cad);
         }
 
         .gebbs-header {
-            background: linear-gradient(to right, var(--gebbs), #b64c06);
+            background: linear-gradient(to right, var(--gebbs), #2836df);
         }
-        .normal-header {
-            background: linear-gradient(to right, var(--normal), #077d9b);
+
+        .normal-estandar-header {
+            background: linear-gradient(to right, var(--normal-estandar), #05647c);
+        }
+
+        .normal-densidad-header {
+            background: linear-gradient(to right, var(--normal-densidad), #e1ad38);
+        }
+
+        .normal-bivariable-header {
+            background: linear-gradient(to right, var(--normal-bivariable), #107843);
         }
         
         .btn-primary {
@@ -129,7 +140,7 @@
             background: linear-gradient(to right, var(--gebbs), #bd5007);
         }
         .btn-normal {
-            background: linear-gradient(to right, var(--normal), #077d9b);
+            background: linear-gradient(to right, var(--normal-estandar), #077d9b);
         }
         
         .form-control {

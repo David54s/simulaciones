@@ -105,8 +105,8 @@
                             {
                                 label: 'Densidad de Muestras (Histograma)',
                                 data: histograma.densidad,
-                                backgroundColor: 'rgba(67, 97, 238, 0.7)',
-                                borderColor: 'rgba(58, 12, 163, 1)',
+                                backgroundColor: 'rgba(90, 117, 240, 0.51)',
+                                borderColor: 'rgba(57, 12, 163, 1)',
                                 borderWidth: 1,
                                 barPercentage: 0.9,
                                 categoryPercentage: 1.0
@@ -115,7 +115,7 @@
                                 label: 'Curva Teórica Normal Estándar',
                                 data: pdf_teorica,
                                 backgroundColor: 'rgba(247, 37, 133, 0)',
-                                borderColor: 'rgba(247, 37, 133, 1)',
+                                borderColor: 'rgba(19, 142, 236, 1)',
                                 borderWidth: 3,
                                 pointRadius: 0,
                                 fill: false,
