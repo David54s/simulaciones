@@ -9,10 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/binomial_puntual.css">
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="app-container">
-     <!-- Barra de navegación mejorada -->
+    <!-- Barra de navegación mejorada -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -132,16 +142,16 @@
                     
                     <!-- Información -->
                     <div class="card mt-4">
-                        <div class="card-header">
-                            <i class="fas fa-info-circle me-2"></i>Acerca de la Binomial Puntual
-                        </div>
-                        <div class="card-body">
-                            <p>La distribución binomial puntual (o ensayo de Bernoulli) modela experimentos con dos resultados posibles: éxito (cara) o fracaso (cruz).</p>
-                            <p class="mb-1"><strong>Función de probabilidad:</strong> P(X=k) = p^k * (1-p)^(1-k)</p>
-                            <p class="mb-1"><strong>Media:</strong> E[X] = p</p>
-                            <p class="mb-0"><strong>Varianza:</strong> Var(X) = p(1-p)</p>
-                        </div>
+                    <div class="card-header">
+                        <i class="fas fa-info-circle me-2"></i>Acerca de la Binomial Puntual
                     </div>
+                    <div class="card-body">
+                        <p>La distribución binomial puntual (o ensayo de Bernoulli) modela experimentos con dos resultados posibles: éxito (cara) o fracaso (cruz).</p>
+                        <p class="mb-1"><strong>Función de probabilidad:</strong> \(P(X=k) = p^k \cdot (1-p)^{1-k}\)</p>
+                        <p class="mb-1"><strong>Media:</strong> \(E[X] = p\)</p>
+                        <p class="mb-0"><strong>Varianza:</strong> \(\text{Var}(X) = p(1-p)\)</p>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

@@ -1,17 +1,17 @@
     :root {
-        --primary: #6a11cb;
-        --secondary: #2575fc;
+        --primary: #2836df;
+        --secondary: #2836df;
         --accent: #ff6b6b;
         --light: #ffffff;
         --dark: #444444;
         --success: #4cc9f0;
         --warning: #f72585;
         --card-bg: #ffffff;
-        --gradient-start: #6a11cb;
-        --gradient-end: #2575fc;
-        --back-button: #6a11cb;
-        --back-button-hover: #5a0fb8;
-        --gebbs: #6a11cb;
+        --gradient-start: #2836df;
+        --gradient-end: #2836df;
+        --back-button: #2836df;
+        --back-button-hover: #2836df;
+        --gebbs: #2836df;
     }
 
     body {

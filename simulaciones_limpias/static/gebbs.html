@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/gebbs.css">
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="app-container">
@@ -238,16 +248,16 @@
                     
                     <!-- Información -->
                     <div class="card mt-4">
-                        <div class="card-header">
-                            <i class="fas fa-info-circle me-2"></i>Acerca del Método de Gibbs
-                        </div>
-                        <div class="card-body">
-                            <p>El método de Gibbs es un algoritmo de MCMC (Markov Chain Monte Carlo) utilizado para obtener muestras de distribuciones multivariadas cuando las distribuciones condicionales son más fáciles de muestrear que la conjunta.</p>
-                            <p class="mb-1"><strong>Función de densidad conjunta:</strong> f(x,y) = (1/28)(2x + 3y + 2) para x,y ∈ [0,2]</p>
-                            <p class="mb-1"><strong>Distribución condicional X|Y:</strong> f(x|y) = (2x + 3y + 2) / (8 + 6y)</p>
-                            <p class="mb-0"><strong>Distribución condicional Y|X:</strong> f(y|x) = (2x + 3y + 2) / (4x + 10)</p>
-                        </div>
+                    <div class="card-header">
+                        <i class="fas fa-info-circle me-2"></i>Acerca del Método de Gibbs
                     </div>
+                    <div class="card-body">
+                        <p>El método de Gibbs es un algoritmo de MCMC (Markov Chain Monte Carlo) utilizado para obtener muestras de distribuciones multivariadas cuando las distribuciones condicionales son más fáciles de muestrear que la conjunta.</p>
+                        <p class="mb-1"><strong>Función de densidad conjunta:</strong> \(f(x,y) = \frac{1}{28}(2x + 3y + 2)\) para \(x,y \in [0,2]\)</p> <br>
+                        <p class="mb-1"><strong>Distribución condicional X|Y:</strong> \(f(x|y) = \frac{2x + 3y + 2}{8 + 6y}\)</p> <br>
+                        <p class="mb-0"><strong>Distribución condicional Y|X:</strong> \(f(y|x) = \frac{2x + 3y + 2}{4x + 10}\)</p>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

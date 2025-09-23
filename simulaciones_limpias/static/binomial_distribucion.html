@@ -10,6 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/binomial_distribucion.css">
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="app-container">
@@ -138,16 +148,16 @@
                 
                 <!-- Información -->
                 <div class="card mt-4">
-                    <div class="card-header bg-info text-white">
-                        <i class="fas fa-info-circle me-2"></i>Acerca de la Simulación Binomial
-                    </div>
-                    <div class="card-body">
-                        <p>Esta simulación realiza múltiples experimentos binomiales y compara los resultados empíricos con la distribución teórica esperada.</p>
-                        <p class="mb-1"><strong>Ejemplo:</strong> Si lanzas 20 monedas (n=20) y repites esto 1000 veces, observarás cómo se aproxima la frecuencia relativa de caras a la probabilidad teórica.</p>
-                        <p class="mb-1"><strong>Función de probabilidad teórica:</strong> P(X=k) = C(n,k) × pᵏ × (1-p)ⁿ⁻ᵏ</p>
-                        <p class="mb-0"><strong>Ley de los grandes números:</strong> A mayor número de experimentos, mejor será la aproximación empírica a la teórica.</p>
-                    </div>
+                <div class="card-header bg-info text-white">
+                    <i class="fas fa-info-circle me-2"></i>Acerca de la Simulación Binomial
                 </div>
+                <div class="card-body">
+                    <p>Esta simulación realiza múltiples experimentos binomiales y compara los resultados empíricos con la distribución teórica esperada.</p>
+                    <p class="mb-1"><strong>Ejemplo:</strong> Si lanzas 20 monedas (n=20) y repites esto 1000 veces, observarás cómo se aproxima la frecuencia relativa de caras a la probabilidad teórica.</p>
+                    <p class="mb-1"><strong>Función de probabilidad teórica:</strong> \(P(X=k) = \binom{n}{k} \times p^k \times (1-p)^{n-k}\)</p>
+                    <p class="mb-0"><strong>Ley de los grandes números:</strong> A mayor número de experimentos, mejor será la aproximación empírica a la teórica.</p>
+                </div>
+            </div>
             </div>
         </div>
         

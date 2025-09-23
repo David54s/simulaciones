@@ -1,5 +1,5 @@
 :root {
-    --primary: #edc25e;
+    --primary: #d5b054;
     --secondary: #d5b054;
     --accent: #f3d978;
     --light: #ffffff;
@@ -7,7 +7,7 @@
     --success: #2ec4b6;
     --warning: #ff9f1c;
     --card-bg: #ffffff;
-    --gradient-start: #edc25e;
+    --gradient-start: #d5b054;
     --gradient-end: #d5b054;
     --back-button: #edc25e;
     --back-button-hover: #d5b054;

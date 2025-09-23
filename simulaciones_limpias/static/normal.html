@@ -10,6 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/normal.css">
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <!-- Barra de navegación mejorada -->
@@ -158,10 +168,10 @@
                             <i class="fas fa-info-circle me-2"></i>Acerca de la Distribución Normal Estándar
                         </div>
                         <div class="card-body">
-                            <p>La distribución normal estándar es un caso especial de la distribución normal con media (μ) = 0 y desviación estándar (σ) = 1. Es fundamental en estadística y es la base para muchas pruebas estadísticas.</p>
-                            <p class="mb-1"><strong>Función de densidad de probabilidad:</strong> f(x) = (1/√(2π)) * e^(-x²/2)</p>
-                            <p class="mb-1"><strong>Media:</strong> E[X] = 0</p>
-                            <p class="mb-0"><strong>Varianza:</strong> Var(X) = 1</p>
+                            <p>La distribución normal estándar es un caso especial de la distribución normal con media \((\mu) = 0\) y desviación estándar \((\sigma) = 1\). Es fundamental en estadística y es la base para muchas pruebas estadísticas.</p>
+                            <p class="mb-1"><strong>Función de densidad de probabilidad:</strong> \(f(x) = \frac{1}{\sqrt{2\pi}} \cdot e^{-\frac{x^2}{2}}\)</p>
+                            <p class="mb-1"><strong>Media:</strong> \(E[X] = 0\)</p>
+                            <p class="mb-0"><strong>Varianza:</strong> \(\text{Var}(X) = 1\)</p>
                         </div>
                     </div>
                 </div>

@@ -1,15 +1,15 @@
 :root {
-    --primary: #3d00cc;
-    --secondary: #3500af;
-    --accent: #3402aa;
+    --primary: #6a40bf;
+    --secondary: #6a40bf;
+    --accent: #6a40bf;
     --light: #f8f9fa;
-    --dark: #212529;
-    --success: #4c4ff0;
+    --dark: ##6a40bf;
+    --success: #6a40bf;
     --warning: #f72585;
     --card-bg: #ffffff;
-    --binomial: #7209b7;
+    --binomial: #6a40bf;
     --back-button: #6a40bf;
-    --back-button-hover: #5a32a8;
+    --back-button-hover: #6a40bf;
 }
 
 body {
@@ -33,7 +33,7 @@ body {
 .title-section {
     text-align: center;
     padding: 2rem;
-    background: linear-gradient(to right, #2c0361, #2c0361);
+    background: linear-gradient(to right, #6a40bf, #6a40bf);
     color: rgb(255, 255, 255);
     margin-bottom: 30px; 
 }
@@ -68,7 +68,7 @@ body {
 }
 
 .card-header {
-    background: linear-gradient(to right, var(--binomial), #5a08a1);
+    background: linear-gradient(to right, var(--binomial), #6a40bf);
     color: white;
     font-weight: 600;
     border-bottom: none;
@@ -77,7 +77,7 @@ body {
 
 /* ESTILO PARA EL TÍTULO DE CONFIGURACIÓN */
 .settings-panel .card-title {
-    background: linear-gradient(to right, var(--binomial), #5a08a1);
+    background: linear-gradient(to right, var(--binomial), #6a40bf);
     color: white;
     padding: 1rem 1.5rem;
     margin: -1.5rem -1.5rem 1.5rem -1.5rem;
@@ -88,7 +88,7 @@ body {
 }
 
 .btn-binomial {
-    background: linear-gradient(to right, var(--binomial), #5a08a1);
+    background: linear-gradient(to right, var(--binomial), #6a40bf);
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
