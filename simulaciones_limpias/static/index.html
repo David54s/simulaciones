@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suite de Simulaciones Estadísticas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="title-section">
+            <h1><i class="fas fa-chart-line me-2"></i>Suite de Simulaciones Estadísticas</h1>
+            <p>Explora diferentes distribuciones probabilísticas mediante simulaciones interactivas</p>
+        </div>
+
+        <!-- Menú de simulaciones -->
+        <div class="row">
+            <!-- Binomial Puntual -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card simulation-card" onclick="window.location.href='binomial_puntual.html'">
+                    <div class="card-header puntual-header text-center">
+                        <div class="simulation-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h5 class="mb-0">Binomial Puntual</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">Simula el lanzamiento de una moneda y muestra los resultados de caras y cruces.</p>
+                        <span class="badge bg-primary">Bernoulli</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Distribución Binomial -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card simulation-card" onclick="window.location.href='binomial_distribucion.html'">
+                    <div class="card-header binomial-header text-center">
+                        <div class="simulation-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h5 class="mb-0">Distribución Binomial</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">Simula la distribución binomial para un número de intentos y probabilidad dados.</p>
+                        <span class="badge bg-primary">Discreta</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Distribución Exponencial -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card simulation-card" onclick="window.location.href='exponencial.html'">
+                    <div class="card-header exponencial-header text-center">
+                        <div class="simulation-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5 class="mb-0">Distribución Exponencial</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">Simula una distribución exponencial y muestra las muestras generadas.</p>
+                        <span class="badge bg-primary">Continua</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Multinomial -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card simulation-card" onclick="window.location.href='multinomial.html'">
+                    <div class="card-header multinomial-header text-center">
+                        <div class="simulation-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                        <h5 class="mb-0">Distribución Multinomial</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">Simula lanzamientos de un dado y muestra la distribución de resultados.</p>
+                        <span class="badge bg-primary">Discreta</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gebbs -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card simulation-card" onclick="window.location.href='gebbs.html'">
+                    <div class="card-header gebbs-header text-center">
+                        <div class="simulation-icon">
+                            <i class="fas fa-random"></i> 
+                        </div>
+                        <h5 class="mb-0">Método de Gebbs</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">Teniendo una muestra f(x,y) deseamos conocer n muestras de f(x,y).</p>
+                        <span class="badge bg-primary">Continua</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Normal Estándar -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card simulation-card" onclick="window.location.href='normal.html'">
+                    <div class="card-header normal-estandar-header text-center">
+                        <div class="simulation-icon">
+                            <i class="fas fa-dot-circle"></i>
+                        </div>
+                        <h5 class="mb-0">Normal Estándar</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">Simula una distribución normal con media y desviación estándar dadas.</p>
+                        <span class="badge bg-primary">Continua</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Densidad Normal -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card simulation-card" onclick="window.location.href='normal_parametros.html'">
+                    <div class="card-header normal-densidad-header text-center">
+                        <div class="simulation-icon">
+                            <i class="fas fa-sliders-h"></i> 
+                        </div>
+                        <h5 class="mb-0">Densidad Normal: μ, σ</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">Simula una distribución normal con media y desviación estándar dadas.</p>
+                        <span class="badge bg-primary">Continua</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Normal Bivariable-->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card simulation-card" onclick="window.location.href='normal_bivariable.html'">
+                    <div class="card-header normal-bivariable-header text-center">
+                        <div class="simulation-icon">
+                            <i class="fas fa-braille"></i> 
+                        </div>
+                        <h5 class="mb-0">Normal Bivariable</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">Simula una distribución normal con media y desviación estándar dadas.</p>
+                        <span class="badge bg-primary">Continua</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor de simulación dinámica -->
+        <div id="simulation-container" class="mt-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="py-5">
+                        <i class="fas fa-mouse-pointer fa-3x mb-3 text-muted"></i>
+                        <h4 class="text-muted">Selecciona una simulación para comenzar</h4>
+                        <p class="text-muted">Haz clic en una de las tarjetas de arriba para cargar la simulación</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="footer">
+        <p>Suite de Simulaciones Estadísticas © 2025 | Creado con fines educativos</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

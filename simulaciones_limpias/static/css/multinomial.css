@@ -1,0 +1,300 @@
+:root {
+    --primary: #264653;
+    --secondary: #264653;
+    --accent: #264653;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #264653;
+    --warning: #f72585;
+    --multinomial: #264653;
+    --mountain: #264653;
+    --back-button: #264653;
+    --back-button-hover: #264653;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 90px; /* Espacio para la barra de navegación fija */
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: rgb(236, 247, 240);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.title-section {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to right, #264653, #264653);
+    color: white;
+}
+
+.title-section h1 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.title-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.content-section {
+    padding: 2rem;
+}
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: none;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background: linear-gradient(to right, var(--mountain), #264653);
+    color: white;
+    font-weight: 600;
+    border-bottom: none;
+    padding: 1rem 1.5rem;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* ESTILO PARA EL TÍTULO DE CONFIGURACIÓN */
+.settings-panel .card-title {
+    background: linear-gradient(to right, var(--mountain), #264653);
+    color: white;
+    padding: 1rem 1.5rem;
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--mountain), #264653);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 157, 143, 0.4);
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--mountain);
+    box-shadow: 0 0 0 0.25rem rgba(42, 157, 143, 0.15);
+}
+
+.chart-container {
+    position: relative;
+    height: 600px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 12px;
+}
+
+.info-section {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #6c757d;
+    background: #ddffe1;
+    border-top: 1px solid #e9ecef;
+}
+
+.param-slider {
+    margin-bottom: 1rem;
+}
+
+.slider-value {
+    font-weight: bold;
+    color: var(--mountain);
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        height: 400px;
+    }
+    
+    body {
+        padding-top: 80px;
+    }
+    
+    .settings-panel .card-title {
+        margin: -1rem -1rem 1rem -1rem;
+        padding: 1rem;
+    }
+}
+
+/* BARRA DE NAVEGACIÓN MEJORADA */
+.navbar-custom {
+    background: linear-gradient(90deg, var(--multinomial) 0%, #264653 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.6rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white !important;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    border-radius: 12px;
+}
+
+.dropdown-item {
+    transition: all 0.2s;
+    border-radius: 8px;
+    margin: 4px;
+    padding: 8px 12px;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+}
+
+.btn-outline-light {
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: white;
+    border-color: white;
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Eliminamos los estilos antiguos de navegación */
+.nav-back, .nav-menu {
+    display: none;
+}
+
+/* Mejoras estéticas generales */
+.app-container {
+    border-radius: 20px;
+}
+
+.title-section {
+    border-radius: 15px 15px 0 0;
+}
+
+.card {
+    border-radius: 18px;
+}
+
+.form-control {
+    border-radius: 12px;
+}
+
+.stat-card {
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#btnDescargar {
+    background: #264653;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: white;
+    width: 100%;
+}
+
+#btnDescargar:hover {
+    background: #1a353f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(101, 11, 111, 0.4);
+    color: white;
+}
+
+#download-section {
+    margin-top: 1rem;
+}

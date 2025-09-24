@@ -1,0 +1,325 @@
+:root {
+    --primary: #107843;
+    --secondary: #107843;
+    --accent: #19a15a;
+    --light: #ffffff;
+    --dark: #333333;
+    --success: #2ec4b6;
+    --warning: #ff9f1c;
+    --card-bg: #ffffff;
+    --gradient-start: #107843;
+    --gradient-end: #0a5c31;
+    --back-button: #107843;
+    --back-button-hover: #0a5c31;
+    --gray-strong: #555555;
+    --gray-medium: #888888;
+    --gray-soft: #cccccc;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 70px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0 1rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+}
+
+.title-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--light);
+    margin-bottom: 0.5rem;
+}
+
+.title-section p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.content-section {
+    padding: 2rem;
+}
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    background: var(--light);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 600;
+    border-bottom: none;
+    padding: 1rem 1.5rem;
+}
+
+.settings-panel .card-title {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem 1.5rem;
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 120, 67, 0.4);
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.25rem rgba(16, 120, 67, 0.15);
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.2rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0.5rem 0;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 12px;
+    display: none;
+}
+
+.chart-container-3d {
+    position: relative;
+    height: 600px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+#threejs-container {
+    width: 100%;
+    height: 100%;
+}
+
+.info-icon {
+    color: var(--accent);
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.settings-panel {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 0;
+}
+
+.settings-panel .card-body {
+    padding: 1.5rem;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.navbar-custom {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.6rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white !important;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    border-radius: 12px;
+}
+
+.dropdown-item {
+    transition: all 0.2s;
+    border-radius: 8px;
+    margin: 4px;
+    padding: 8px 12px;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+}
+
+.btn-outline-light {
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Eliminamos los estilos antiguos de navegación */
+.nav-back, .nav-menu {
+    display: none;
+}
+
+/* Mejoras estéticas generales */
+.app-container {
+    border-radius: 20px;
+}
+
+.title-section {
+    border-radius: 15px 15px 0 0;
+}
+
+.card {
+    border-radius: 18px;
+}
+
+.form-control {
+    border-radius: 12px;
+}
+
+.btn-binomial {
+    border-radius: 12px;
+}
+
+.stat-card {
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.color-gradient {
+    height: 20px;
+    flex: 1;
+    background: linear-gradient(to right, #313695, #4575b4, #74add1, #abd9e9, #e0f3f8, #ffffbf, #fee090, #fdae61, #f46d43, #d73027, #a50026);
+    border-radius: 4px;
+}
+
+#btnDescargar {
+    background: #107843;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: white;
+    width: 100%;
+}
+
+#btnDescargar:hover {
+    background: #024d26;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(101, 11, 111, 0.4);
+    color: white;
+}
+
+#download-section {
+    margin-top: 1rem;
+}
