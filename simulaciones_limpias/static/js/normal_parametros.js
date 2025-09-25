@@ -86,6 +86,36 @@ btnGenerarNormal.addEventListener('click', async () => {
         resultadosSimulacion = data.muestras;
         parametrosSimulacion = {n: n, mu: mu, sigma: sigma};
         document.getElementById('download-section').style.display = 'block';
+
+
+        // Actualizar resultados detallados - mostrar primeros 100 valores
+const resultadosAMostrar = data.muestras.slice(0, 100);
+const totalMostrados = resultadosAMostrar.length;
+
+let htmlResultados = `
+    <div class="resumen-resultados">
+        <p class="resumen-text">
+            Mostrando los primeros ${totalMostrados} valores de ${n} muestras totales
+        </p>
+    </div>
+    <div class="resultados-grid">
+`;
+
+resultadosAMostrar.forEach((valor, index) => {
+    const numero = index + 1;
+    // Clasificar valores según su relación con la media
+    const clase = valor >= mu ? "resultado-sobre-media" : "resultado-bajo-media";
+    
+    htmlResultados += `
+        <div class="${clase} resultado-item" title="Muestra ${numero}: ${valor.toFixed(4)}">
+            ${numero}: ${valor.toFixed(2)}
+        </div>
+    `;
+});
+
+htmlResultados += `</div>`;
+
+document.getElementById('resultados-detallados-container').innerHTML = htmlResultados;
         
         // Destruir gráfico anterior si existe
         if (chartNormal) {

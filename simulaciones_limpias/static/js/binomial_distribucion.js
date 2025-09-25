@@ -118,6 +118,33 @@ let parametrosSimulacion = null;
                         </div>
                     </div>
                 `;
+
+                // Actualizar resultados detallados
+const resultadosAMostrar = data.resultados_detallados.slice(0, 100);
+const totalMostrados = resultadosAMostrar.length;
+
+let htmlResultados = `
+    <div class="resumen-resultados">
+        <p class="resumen-text">
+            Mostrando los primeros ${totalMostrados} experimentos de ${data.repeticiones} totales
+        </p>
+    </div>
+    <div class="resultados-grid">
+`;
+
+resultadosAMostrar.forEach((exitos, index) => {
+    const numero = index + 1;
+    
+    htmlResultados += `
+        <div class="resultado-experimento" title="Experimento ${numero}: ${exitos} éxitos de ${n}">
+            ${numero}: ${exitos}
+        </div>
+    `;
+});
+
+htmlResultados += `</div>`;
+
+document.getElementById('resultados-detallados-container').innerHTML = htmlResultados;
                 resultadosSimulacion = data.resultados_detallados;
                 parametrosSimulacion = {n: n, p: p, repeticiones: repeticiones};
                 document.getElementById('download-section').style.display = 'block';

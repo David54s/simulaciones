@@ -771,6 +771,39 @@ let parametrosSimulacion = null;
                 document.getElementById('varianzaX').textContent = stats.varianzaX.toFixed(4);
                 document.getElementById('varianzaY').textContent = stats.varianzaY.toFixed(4);
                 document.getElementById('correlacion').textContent = stats.correlacion.toFixed(4);
+
+
+
+                // Actualizar resultados detallados
+const resultadosAMostrar = data.xs.slice(0, 100);
+const resultadosYAMostrar = data.ys.slice(0, 100);
+const totalMostrados = resultadosAMostrar.length;
+
+let htmlResultados = `
+    <div class="resumen-resultados">
+        <p class="resumen-text">
+            Mostrando las primeras ${totalMostrados} muestras de ${n} totales
+        </p>
+    </div>
+    <div class="resultados-grid">
+`;
+
+resultadosAMostrar.forEach((valorX, index) => {
+    const valorY = resultadosYAMostrar[index];
+    const numero = index + 1;
+    
+    htmlResultados += `
+        <div class="resultado-muestra" title="Muestra ${numero}: X=${valorX.toFixed(4)}, Y=${valorY.toFixed(4)}">
+            ${numero}: (${valorX.toFixed(2)}, ${valorY.toFixed(2)})
+        </div>
+    `;
+});
+
+htmlResultados += `</div>`;
+
+document.getElementById('resultados-detallados-container').innerHTML = htmlResultados;
+
+
                 
                 // Calcular histograma y guardarlo
                 lastHistogramData = create2DHistogram(data.xs, data.ys, gridSize);

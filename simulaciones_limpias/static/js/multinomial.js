@@ -210,6 +210,51 @@ document.addEventListener('DOMContentLoaded', function() {
             resultadosSimulacion = datosDescarga;
             parametrosSimulacion = {numDados: numDados, numRepeticiones: numRepeticiones};
             document.getElementById('download-section').style.display = 'block';
+
+            // Actualizar resultados detallados
+const datosAMostrar = Math.min(100, datosDescarga.repeticiones.length);
+const indicesAMostrar = [];
+
+// Obtener índices de las primeras 100 entradas únicas por repetición
+const repeticionesVistas = new Set();
+for (let i = 0; i < datosDescarga.repeticiones.length && indicesAMostrar.length < datosAMostrar; i++) {
+    const rep = datosDescarga.repeticiones[i];
+    if (!repeticionesVistas.has(rep) || repeticionesVistas.size < 20) {
+        indicesAMostrar.push(i);
+        repeticionesVistas.add(rep);
+    }
+}
+
+let htmlResultados = `
+    <div class="resumen-resultados">
+        <p class="resumen-text">
+            Mostrando las primeras ${indicesAMostrar.length} entradas de ${datosDescarga.repeticiones.length} totales
+        </p>
+    </div>
+    <div class="resultados-grid">
+`;
+
+indicesAMostrar.forEach((index) => {
+    const repeticion = datosDescarga.repeticiones[index];
+    const cara = datosDescarga.caras[index];
+    const frecuencia = datosDescarga.frecuencias[index];
+    
+    htmlResultados += `
+        <div class="resultado-repeticion" title="Repetición ${repeticion}: Cara ${cara} - ${frecuencia} veces">
+            R${repeticion}: C${cara} (${frecuencia})
+        </div>
+    `;
+});
+
+htmlResultados += `</div>`;
+
+document.getElementById('resultados-detallados-container').innerHTML = htmlResultados;
+
+// Expandir la tarjeta de resultados
+const tarjetaResultados = document.querySelector('.card:has(#resultados-detallados-container)');
+if (tarjetaResultados) {
+    tarjetaResultados.classList.add('resultados-expandidos');
+}
             
             
         } catch (error) {

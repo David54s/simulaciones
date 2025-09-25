@@ -322,3 +322,45 @@ body {
     box-shadow: 0 5px 15px rgba(101, 11, 111, 0.4) !important;
     color: white !important;
 }
+
+.resultados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 6px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.resultado-experimento {
+    padding: 6px 10px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #6a40bf, #5a08a1);
+    color: white;
+}
+
+.resultado-experimento:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.resumen-resultados {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--binomial);
+}
+
+.resumen-text {
+    margin: 0;
+    color: #495057;
+    font-weight: 500;
+}

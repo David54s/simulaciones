@@ -90,6 +90,45 @@ btnGenerarExponencial.addEventListener('click', async () => {
         document.getElementById('varianzaTeorica').textContent = varianzaTeorica.toFixed(4);
         
 
+        // Actualizar estadísticas en la UI
+document.getElementById('mediaMuestral').textContent = mediaMuestral.toFixed(4);
+document.getElementById('mediaTeorica').textContent = mediaTeorica.toFixed(4);
+document.getElementById('varianzaMuestral').textContent = varianzaMuestral.toFixed(4);
+document.getElementById('varianzaTeorica').textContent = varianzaTeorica.toFixed(4);
+
+// Actualizar resultados detallados
+const resultadosAMostrar = data.muestras.slice(0, 100);
+const totalMostrados = resultadosAMostrar.length;
+
+let htmlResultados = `
+    <div class="resumen-resultados">
+        <p class="resumen-text">
+            Mostrando las primeras ${totalMostrados} muestras de ${n} totales
+        </p>
+    </div>
+    <div class="resultados-grid">
+`;
+
+resultadosAMostrar.forEach((valor, index) => {
+    const numero = index + 1;
+    
+    htmlResultados += `
+        <div class="resultado-muestra" title="Muestra ${numero}: ${valor.toFixed(4)}">
+            ${numero}: ${valor.toFixed(2)}
+        </div>
+    `;
+});
+
+htmlResultados += `</div>`;
+
+document.getElementById('resultados-detallados-container').innerHTML = htmlResultados;
+
+
+// Guardar resultados para descarga
+resultadosSimulacion = data.muestras;
+parametrosSimulacion = {n: n, lambda: lambda};
+document.getElementById('download-section').style.display = 'block';
+
         // Guardar resultados para descarga
         resultadosSimulacion = data.muestras;
         parametrosSimulacion = {n: n, lambda: lambda};

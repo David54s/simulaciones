@@ -79,7 +79,7 @@
                                     Número de Muestras
                                     <i class="fas fa-info-circle info-icon" data-bs-toggle="tooltip" title="Número de muestras a generar para el histograma"></i>
                                 </label>
-                                <input type="number" class="form-control" id="numSamples" value="100000" min="1000" max="1000000" step="1000">
+                                <input type="number" class="form-control" id="numSamples" value="100000" min="1000" step="1000">
                             </div>
                             
                             <div class="mb-3">
@@ -144,8 +144,12 @@
                                 </button>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
+
+
+                
                 
                 <div class="col-lg-8 mb-4">
                     <div class="card">
@@ -220,11 +224,11 @@
                                     </div>
                                 </div>
 
-                                <div class="d-grid mt-3" id="download-section" style="display: none;">
+                                <!-- <div class="d-grid mt-3" id="download-section" style="display: none;">
                                     <button class="btn btn-outline-primary" id="btnDescargar">
                                         <i class="fas fa-download me-2"></i>Descargar Resultados
                                     </button>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>
@@ -247,7 +251,29 @@
                                 <li>Con correlación cero, las variables son independientes</li>
                             </ul>
                         </div>
+
+                        
+                        
                     </div>
+
+                    
+                                <!-- Resultados Detallados -->
+                <div class="card mt-4">
+                    <div class="card-header bg-info text-white">
+                        <i class="fas fa-list me-2"></i>Resultados Detallados
+                    </div>
+                    <div class="card-body">
+                        <div id="resultados-detallados-container">
+                            <p class="text-center text-muted">Ejecuta la simulación para ver los resultados detallados</p>
+                        </div>
+                        <div class="d-grid mt-3" id="download-section" style="display: block;">
+                            <button class="btn btn-outline-primary" id="btnDescargar">
+                                <i class="fas fa-download me-2"></i>Descargar Resultados
+                            </button>
+                        </div>
+                    </div>
+                    
+
                 </div>
             </div>
         </div>
